@@ -15,17 +15,9 @@ Ext.define('ExtAng.view.main.MainController', {
     alias: 'controller.main',
 	
     onItemSelected: function (sender, record) {
-        //Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-		/*MySharedData.foo="change me";
-		console.log("yash item selected, data="+MySharedData.foo);*/
-		window.fromExtToNg="I am being passed from Ext to Angular!";
-		console.log("Global variable set : "+window.fromExtToNg);
-		
-    },
-
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
-        }
+		// setting global variable with the selected ID so that the Angular component could grab it and display details for this article item.
+		window.fromExtToNg= record.get("id");
+		// dispatching even so that Angular app could know when a change to the global variable is made.
+		window.dispatchEvent(new CustomEvent('fromExtToNg'));
     }
 });

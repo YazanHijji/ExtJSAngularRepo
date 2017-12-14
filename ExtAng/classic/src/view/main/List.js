@@ -1,24 +1,25 @@
-/**
- * This view is an example list of people.
+ /**
+ * This view is an example list of Articles.
  */
 Ext.define('ExtAng.view.main.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'mainlist',
 
     requires: [
-        'ExtAng.store.Personnel'
+        'ExtAng.store.Article'
     ],
 
-    title: 'Personnel',
+    title: 'Article',
 
     store: {
-        type: 'personnel'
+        type: 'article'
     },
 
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone', flex: 1 }
+        { text: 'User ID',  dataIndex: 'userId' },
+        { text: 'Article ID', dataIndex: 'id' },
+        { text: 'Title', dataIndex: 'title' },
+		{ text: 'Body', dataIndex: 'body', flex: 1 }
     ],
 
     listeners: {
